@@ -1,7 +1,7 @@
 name: ci-golang-workflow
 on: [push]  #it happens on push
 jobs:
-  ckeck-applications:
+  check-applications:
     runs-on: ubuntu-latest #it happens on ubuntu-latest
     steps:
       - uses: actions/checkout@v2 #common use, it download files
