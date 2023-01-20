@@ -15,19 +15,15 @@ jobs:
       - run: go test #execute commands
       - run: go run math.go
 
-      #run docker 
-      - name: Checkout
-        uses: actions/checkout@v3
-      #setup docker to work some architectures
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      #build 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - name: Set up QEMU #setup docker to work some architectures
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx #build 
+        uses: docker/setup-buildx-action@v1
 
       - name: Build and push
         id: docker_build #using ID is possible use build results
-        uses: docker/build-push-actions@v2
+        uses: docker/build-push-actions@v1
         with:
           push: false
           tags: poncion/edu-fc-ci-org:latest #build saved on instance
